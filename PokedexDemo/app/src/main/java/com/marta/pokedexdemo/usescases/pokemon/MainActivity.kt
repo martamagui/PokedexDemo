@@ -1,4 +1,4 @@
-package com.marta.pokedexdemo
+package com.marta.pokedexdemo.usescases.pokemon
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -11,4 +11,5 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
     }
+
 }
