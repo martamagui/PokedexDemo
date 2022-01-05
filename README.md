@@ -11,9 +11,11 @@ It will also have a search bar to be able to locale you fave Pokemons really qui
 </br>
 
 ## <img width="3%"  alt="Pikachu" src="https://66.media.tumblr.com/f4918498af34c8764de970a2ca76795b/tumblr_mvzj2elEQA1rfjowdo1_500.gif"/> CheckList <img width="3%"  alt="Pikachu" src="https://66.media.tumblr.com/f4918498af34c8764de970a2ca76795b/tumblr_mvzj2elEQA1rfjowdo1_500.gif"/>
-- [ ]  Parsing Json Pokemons
-- [ ]  Create a succesful Api call.
-- [ ]  Add the results to a list.
+- [x]  Parsing Json Pokemons
+- [x]  Create a succesful Api call.
+- [x]  Add the results to a list
+- [ ]  Create a ImageView extension to use Glide with every picture.
 - [ ]  Implement Detail Activity
 - [ ]  Implement a searchview
 - [ ]  Implement a bottom navigation (maybe berries and item will be also displayed)
+
