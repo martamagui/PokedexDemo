@@ -18,14 +18,15 @@ class PokemonListAdapter() :
         return ViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: PokemonListAdapter.ViewHolder, position: Int) {
         val pokemon = getItem(position)
-        //TODO continue with the item binding
-        
+        holder.binding.tvPokemonId.text = pokemon.id.toString()
+        holder.binding.tvNameCard.text = pokemon.name
 
     }
 
-    inner class ViewHolder(binding: ItemPokemonBinding) : RecyclerView.ViewHolder(binding.root)
+    inner class ViewHolder(val binding: ItemPokemonBinding) :
+        RecyclerView.ViewHolder(binding.root)
 
 
 }

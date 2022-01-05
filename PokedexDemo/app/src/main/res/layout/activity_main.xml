@@ -8,7 +8,7 @@
 
 
     <fragment
-        android:id="@+id/fragmentContainerView3"
+        android:id="@+id/container"
         android:name="com.marta.pokedexdemo.usescases.pokemon.pokemonlist.PokemonListFragment"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -18,4 +18,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:layout="@layout/fragment_pokemon_list" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -24,6 +24,7 @@ class PokemonListFragment : Fragment() {
     private val binding
         get() = _binding!!
     private val pokeAdapter = PokemonListAdapter()
+    private var newPokeList: MutableList<Pokemon> = mutableListOf()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -60,6 +61,7 @@ class PokemonListFragment : Fragment() {
                 if (response.isSuccessful) {
                     val results: List<Result> = response.body()?.results!!
                     requestPokemon(results)
+
                 } else {
                     Toast.makeText(context, "(╯°□°）╯︵ ┻━┻ Connection faliure", Toast.LENGTH_SHORT)
                         .show()
@@ -68,21 +70,23 @@ class PokemonListFragment : Fragment() {
         })
     }
 
-    private fun requestPokemon(pokeList: List<Result>) {
-        var newList: MutableList<Pokemon> = mutableListOf()
+    private fun requestPokemon(pokeList: List<Result>){
         for (item in pokeList){
             val service = PokeApi.service.getPokemon(item.name)
             val call = service.enqueue(object : Callback<Pokemon> {
-
                 override fun onFailure(call: Call<Pokemon>, t: Throwable) {
                     Log.d("OnFailure", t.message.toString())
                 }
-
                 override fun onResponse(call: Call<Pokemon>, response: Response<Pokemon>) {
                     if (response.isSuccessful) {
                         val pokemonResponse : Pokemon? = response.body()
-                        Log.d("Poke", response.body().toString())
-                        newList.add(pokemonResponse!!)
+                        Log.d("Poke", pokemonResponse.toString())
+//                        Log.d("Poke", response.body().toString())
+                        newPokeList.add(pokemonResponse!!)
+                        Log.d("Poke", newPokeList.count().toString())
+                        newPokeList.sortBy { it.id }
+                        pokeAdapter.submitList(newPokeList)
+                        pokeAdapter.notifyDataSetChanged()
                     } else {
                         Toast.makeText(context, "(╯°□°）╯︵ ┻━┻ Connection faliure", Toast.LENGTH_SHORT)
                             .show()
@@ -90,6 +94,8 @@ class PokemonListFragment : Fragment() {
                 }
             })
         }
-
+        Log.d("Pokes", newPokeList.count().toString())
+//        pokeAdapter.submitList(newList)
+//        pokeAdapter.notifyDataSetChanged()
     }
 }
