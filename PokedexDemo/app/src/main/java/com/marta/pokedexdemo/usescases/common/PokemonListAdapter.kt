@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.marta.pokedexdemo.databinding.ItemPokemonBinding
 import com.marta.pokedexdemo.model.pokemon.Pokemon
+import com.marta.pokedexdemo.util.imageLink
 import java.util.*
 
 
@@ -30,6 +31,7 @@ class PokemonListAdapter() :
         holder.binding.tvPokemonId.text = "# ${pokemon.id.toString()}"
         holder.binding.tvNameCard.text =
             pokemon.name.replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString() }
+        holder.binding.ivPokemonCard.imageLink(pokemon.sprites.other.officialArtwork.front_default)
         holder.binding.tvType1.text =  pokemon.types[0].type.name
         if (pokemon.types.size>1){
             holder.binding.tvType2.text = pokemon.types[1].type.name
