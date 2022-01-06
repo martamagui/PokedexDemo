@@ -49,7 +49,7 @@ class PokemonListFragment : Fragment() {
 
     //
     private fun requestList() {
-        val service = PokeApi.service.get50Pokemons()
+        val service = PokeApi.service.get250Pokemons()
         val call = service.enqueue(object : Callback<PokeList> {
             override fun onFailure(call: Call<PokeList>, t: Throwable) {
                 Log.d("OnFailure", t.message.toString())
