@@ -17,6 +17,7 @@ It will also have a search bar to be able to locale you fave Pokemons really qui
 - [x] Create a succesful Api call.
 - [x] Add the results to a list
 - [x] Create a ImageView extension to use Glide with every picture.
+- [ ] Add a funtion to change the Pokemon's type color
 - [ ] Implement Detail Activity
 - [ ] Implement a searchview
 - [ ] Implement a bottom navigation (maybe berries and item will be also displayed)
